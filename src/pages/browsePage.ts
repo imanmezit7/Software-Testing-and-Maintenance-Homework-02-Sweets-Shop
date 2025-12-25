@@ -8,7 +8,7 @@ export class BrowsePage {
 
   constructor(page: Page) {
     this.page = page;
-    this.inputField = page.locator('#sweet-name'); // example input for test
+    this.inputField = page.locator('#sweet-name');
     this.browseButton = page.getByRole('button', { name: 'Browse Sweets' });
   }
 
@@ -18,6 +18,6 @@ export class BrowsePage {
   }
 
   async pageLoadsSafely() {
-    await expect(this.page.locator('.sweet-item')).toBeVisible();
+    await expect(this.page.locator('.sweet-item').first()).toBeVisible();
   }
 }

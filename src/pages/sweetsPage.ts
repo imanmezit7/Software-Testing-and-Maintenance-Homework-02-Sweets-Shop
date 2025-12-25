@@ -31,11 +31,12 @@ export class SweetsPage {
     await expect(disabledButton).toBeDisabled();
   }
 
-  async basketTextChanged(initialText: string | null) {
-    await expect(this.basketCount).not.toHaveText(initialText ?? '');
-  }
-
   async getBasketText() {
     return await this.basketCount.textContent();
   }
+
+  async basketTextChanged(initialText: string | null) {
+    await expect(this.basketCount).not.toHaveText(initialText ?? '');
+  }
+  
 }

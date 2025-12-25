@@ -3,6 +3,7 @@ import { expect } from '@playwright/test';
 
 export class AboutPage {
   readonly page: Page;
+
   constructor(page: Page) {
     this.page = page;
   }
