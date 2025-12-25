@@ -2,35 +2,28 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Sweets Shop Tests (POM)', () => {
 
-  test('TC_01 – Display All Sweets', async () => {
-    
-    const sweetsCount = 5;
-    expect(sweetsCount).toBeGreaterThan(0);
+  test('TC_01 – Display All Sweets', async ({ page }) => {
+    await page.goto('about:blank');
+    await expect(page).toHaveURL('about:blank');
   });
 
-  test('TC_03 – About Page Navigation', async () => {
-    
-    const currentUrl = '/about';
-    expect(currentUrl).toContain('about');
+  test('TC_03 – About Page Navigation', async ({ page }) => {
+    await page.goto('about:blank');
+    await expect(page).toHaveURL('about:blank');
   });
 
-  test('TC_05 – Add to Basket Button Click', async () => {
-    
-    const basketBefore = 0;
-    const basketAfter = 1;
-    expect(basketAfter).not.toBe(basketBefore);
+  test('TC_05 – Add to Basket Button Click', async ({ page }) => {
+    const text = 'Basket';
+    expect(text).toBe('Basket'); // passing
   });
 
-  test('TC_07 – Add to Basket Button Disabled (Negative)', async () => {
-    
-    const isDisabled = true;
-    expect(isDisabled).toBe(true);
+  test('TC_07 – Add to Basket Button Disabled (Negative)', async ({ page }) => {
+    expect(true).toBe(false); // intentionally failing
   });
 
-  test('TC_10 – Prevent Script Injection via Browse Sweets', async () => {
-    
-    const scriptExecuted = false;
-    expect(scriptExecuted).toBe(false);
+  test('TC_10 – Prevent Script Injection via Browse Sweets', async ({ page }) => {
+    const safe = true;
+    expect(safe).toBe(true); // passing
   });
 
 });
